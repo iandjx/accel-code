@@ -10,7 +10,8 @@ import Chip from "@material-ui/core/Chip";
 const useStyles = makeStyles({
   root: {
     maxWidth: "95%",
-    border: 2
+    border: 2,
+    marginBottom: 10
   },
   bullet: {
     display: "inline-block",
