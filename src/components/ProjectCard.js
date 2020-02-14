@@ -40,8 +40,6 @@ const ProjectCard = props => {
   const classes = useStyles();
 
   return (
-    //TODO define card attributes
-    //projectTitle, description, number of contributors > int, techstack >[]
     //TODO define handlers
     <Card className={classes.root}>
       <CardContent>
