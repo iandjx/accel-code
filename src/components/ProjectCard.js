@@ -1,14 +1,16 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import PeopleIcon from "@material-ui/icons/People";
+import LabelOutlinedIcon from "@material-ui/icons/LabelOutlined";
+import Chip from "@material-ui/core/Chip";
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 275
+    maxWidth: "95%",
+    border: 2
   },
   bullet: {
     display: "inline-block",
@@ -20,42 +22,48 @@ const useStyles = makeStyles({
   },
   pos: {
     marginBottom: 12
+  },
+  chip: {
+    marginRight: 10
+  },
+  icon: {
+    verticalAlign: "middle"
+  },
+  labelIcon: {
+    verticalAlign: "middle",
+    marginRight: 15
   }
 });
 
-const ProjectCard = () => {
+const ProjectCard = props => {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
 
   return (
     //TODO define card attributes
     //projectTitle, description, number of contributors > int, techstack >[]
-    //TODO style card
     //TODO define handlers
     <Card className={classes.root}>
       <CardContent>
-        <Typography
-          className={classes.title}
-          color="textSecondary"
-          gutterBottom
-        >
-          Word of the Day
+        <Typography variant="subtitle1" component="h1">
+          {props.title}
         </Typography>
-        <Typography variant="h5" component="h2">
-          be{bull}nev{bull}o{bull}lent
+        <Typography variant="body2" component="p" className={classes.pos}>
+          {props.description}
         </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          adjective
+        <Typography variant="body2">
+          <PeopleIcon className={classes.labelIcon} />
+          {props.contributers} contributers
         </Typography>
-        <Typography variant="body2" component="p">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
-        </Typography>
+        <LabelOutlinedIcon className={classes.labelIcon} />
+        {props.techStack.map(tech => (
+          <Chip
+            variant="outlined"
+            size="small"
+            label={tech}
+            className={classes.chip}
+          />
+        ))}
       </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
     </Card>
   );
 };
