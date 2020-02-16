@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import SearchBar from "material-ui-search-bar";
+import SearchBar from "../components/SearchBar";
 import ProjectList from "../components/ProjectList";
 import SideBar from "../components/SideBar";
 
@@ -12,7 +12,6 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -40,7 +39,7 @@ const Dashboard = props => {
     <div className={classes.root}>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <AppBar position="static">
+          <AppBar position="static" style={{ background: "#2E3B55" }}>
             <Toolbar>
               <IconButton
                 edge="start"
@@ -49,27 +48,20 @@ const Dashboard = props => {
                 aria-label="menu"
               ></IconButton>
               <Typography variant="h6" className={classes.title}>
-                News
+                ACCEL CODE
               </Typography>
-              <Button color="inherit">Login</Button>
+              <Button color="inherit">Create a Project</Button>
             </Toolbar>
           </AppBar>
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={2}>
           <Paper>
             <SideBar />
           </Paper>
         </Grid>
-        <Grid item xs={9}>
+        <Grid item xs={10}>
           <Paper>
-            <SearchBar
-              onChange={() => console.log("onChange")}
-              onRequestSearch={() => console.log("onRequestSearch")}
-              style={{
-                margin: "0 auto",
-                maxWidth: 800
-              }}
-            />
+            <SearchBar />
             <ProjectList />
           </Paper>
         </Grid>

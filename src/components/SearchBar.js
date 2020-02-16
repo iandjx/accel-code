@@ -1,45 +1,58 @@
-import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-
+import TextField from "@material-ui/core/TextField";
 import IconButton from "@material-ui/core/IconButton";
-import Input from "@material-ui/core/Input";
-import Paper from "@material-ui/core/Paper";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import SearchIcon from "@material-ui/icons/Search";
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    height: 48,
-    display: "flex",
-    justifyContent: "space-between",
-    border: 2
-  },
-  searchIconButton: {
-    marginRight: -48
-  },
-  icon: {
-    opacity: 0.54,
-    transition: "opacity 200ms cubic-bezier(0.4, 0.0, 0.2, 1)"
-  },
-  input: {
-    width: "100%"
-  },
-  searchContainer: {
-    margin: "auto 16px",
-    width: "calc(100% - 48px - 32px)" // 48px button + 32px margin
+import React, { useState, useEffect, useCallback } from "react";
+import { connect, useDispatch, useSelector } from "react-redux";
+
+import * as actions from "../store/actions/index";
+
+const useStyles = makeStyles({
+  text: {
+    maxWidth: "80%"
   }
-}));
+});
 
-const Search = () => {
+const Search = props => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+
+  const [searchTerm, setSearchTerm] = React.useState("");
+  const handleChange = event => {
+    setSearchTerm(event.target.value);
+    console.log(searchTerm);
+  };
+  const onSearchHandler = keyword => {
+    dispatch(actions.searchProject(keyword));
+  };
 
   return (
-    <div>
-      <Paper className={classes.root}>
-        <div className={classes.searchContainer}>
-          <Input fullwidth className={classes.input} disableUnderline />
-        </div>
-        <IconButton classes={classes.searchIconButton}></IconButton>
-      </Paper>
-    </div>
+    <TextField
+      value={searchTerm}
+      onChange={handleChange}
+      className={classes.text}
+      id="outlined-full-width"
+      style={{ margin: 8 }}
+      placeholder="Placeholder"
+      helperText="Full width!"
+      margin="normal"
+      fullWidth
+      InputLabelProps={{
+        shrink: true
+      }}
+      variant="outlined"
+      InputProps={{
+        endAdornment: (
+          <InputAdornment>
+            <IconButton onClick={() => onSearchHandler(searchTerm)}>
+              <SearchIcon />
+            </IconButton>
+          </InputAdornment>
+        )
+      }}
+    />
   );
 };
 
