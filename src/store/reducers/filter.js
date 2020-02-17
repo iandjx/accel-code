@@ -1,7 +1,7 @@
 import * as actionTypes from "../actions/actionTypes";
 import produce from "immer";
 import Fuse from "fuse.js";
-
+//TODO Add additional state for search results
 const initialState = {
   projects: [
     {
@@ -32,7 +32,8 @@ const initialState = {
       contributers: "A pretty red scarf.",
       techStack: ["MQL5", "Python", "ReactJS"]
     }
-  ]
+  ],
+  searchResult: []
 };
 
 var options = {
@@ -49,10 +50,14 @@ const filterReducer = (state = initialState, action) => {
   const { type } = action;
   switch (type) {
     case actionTypes.SEARCH_PROJECT:
-      state = initialState;
-      const fuse = new Fuse(state.projects, options);
-      console.log(fuse.search(action.keyword));
-      return fuse.search(action.keyword);
+      const nextState = produce(state, draftState => {
+        const fuse = new Fuse(state.projects, options);
+        const result = fuse.search(action.keyword);
+        draftState.searchResult = result;
+      });
+      console.log(nextState);
+      return nextState;
+
     default:
       return state;
   }
