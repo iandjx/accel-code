@@ -1,7 +1,7 @@
 import * as actionTypes from "../actions/actionTypes";
 import produce from "immer";
 import Fuse from "fuse.js";
-//TODO Add additional state for search results
+
 const initialState = {
   projects: [
     {

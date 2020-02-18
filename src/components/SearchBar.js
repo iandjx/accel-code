@@ -22,11 +22,13 @@ const Search = props => {
   const [searchTerm, setSearchTerm] = React.useState("");
   const handleChange = event => {
     setSearchTerm(event.target.value);
-    console.log(searchTerm);
+    console.log(projects);
   };
   const onSearchHandler = keyword => {
     dispatch(actions.searchProject(keyword));
   };
+
+  const projects = useSelector(state => state.filter.searchResult);
 
   return (
     <TextField

@@ -1,48 +1,28 @@
-import React from "react";
 import ProjectCard from "./ProjectCard";
+import React, { useState, useEffect, useCallback } from "react";
+import { connect, useDispatch, useSelector } from "react-redux";
 
-const projects = [
-  {
-    title: "MQL5",
-    description:
-      "This forex trading robot can take trades based on several indicators such as bollinger, moving averages, RSI. Grid and Martingale trading can be added but not a priority. Lot trading should be managed as well.",
-    contributers: "A pretty red scarf.",
-    techStack: ["MQL5", "Python", "ReactJS"]
-  },
-  {
-    title: "MQL5",
-    description:
-      "This forex trading robot can take trades based on several indicators such as bollinger, moving averages, RSI. Grid and Martingale trading can be added but not a priority. Lot trading should be managed as well.",
-    contributers: "A pretty red scarf.",
-    techStack: ["MQL5", "Python", "ReactJS"]
-  },
-  {
-    title: "MQL5",
-    description:
-      "This forex trading robot can take trades based on several indicators such as bollinger, moving averages, RSI. Grid and Martingale trading can be added but not a priority. Lot trading should be managed as well.",
-    contributers: "A pretty red scarf.",
-    techStack: ["MQL5", "Python", "ReactJS"]
-  },
-  {
-    title: "MQL5",
-    description:
-      "This forex trading robot can take trades based on several indicators such as bollinger, moving averages, RSI. Grid and Martingale trading can be added but not a priority. Lot trading should be managed as well.",
-    contributers: "A pretty red scarf.",
-    techStack: ["MQL5", "Python", "ReactJS"]
-  }
-];
-
+//TODO Use useSelector() to pull project list from Redux
 const ProjectList = () => {
+  const searchResult = useSelector(state => {
+    return state.filter.searchResult;
+  });
+
+  const projects = useSelector(state => {
+    return state.filter.projects;
+  });
+
   return (
     <div>
-      {projects.map(project => (
-        <ProjectCard
-          title={project.title}
-          description={project.description}
-          contributers={project.contributers}
-          techStack={project.techStack}
-        />
-      ))}
+      {searchResult &&
+        searchResult.map(project => (
+          <ProjectCard
+            title={project.title}
+            description={project.description}
+            contributers={project.contributers}
+            techStack={project.techStack}
+          />
+        ))}
     </div>
   );
 };

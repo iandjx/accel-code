@@ -14,7 +14,7 @@ import filterReducer from "./store/reducers/filter";
 //: null || compose;
 
 const rootReducer = combineReducers({
-  filterReducer: filterReducer
+  filter: filterReducer
 });
 const store = createStore(rootReducer);
 
