@@ -1,1 +1,2 @@
 export const SEARCH_PROJECT = "SEARCH_PROJECT";
+export const FILTER_PROJECT = "FILTER_PROJECT";

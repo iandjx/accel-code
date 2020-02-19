@@ -9,14 +9,14 @@ const initialState = {
       description:
         "This forex trading robot can take trades based on several indicators such as bollinger, moving averages, RSI. Grid and Martingale trading can be added but not a priority. Lot trading should be managed as well.",
       contributers: "A pretty red scarf.",
-      techStack: ["MQL5", "Python", "ReactJS"]
+      techStack: ["Python", "ReactJS"]
     },
     {
       title: "Javascript Full Stack",
       description:
         "This forex trading robot can take trades based on several indicators such as bollinger, moving averages, RSI. Grid and Martingale trading can be added but not a priority. Lot trading should be managed as well.",
       contributers: "A pretty red scarf.",
-      techStack: ["MQL5", "Python", "ReactJS"]
+      techStack: ["Python", "ReactJS"]
     },
     {
       title: "Python Flask",
@@ -30,7 +30,7 @@ const initialState = {
       description:
         "This forex trading robot can take trades based on several indicators such as bollinger, moving averages, RSI. Grid and Martingale trading can be added but not a priority. Lot trading should be managed as well.",
       contributers: "A pretty red scarf.",
-      techStack: ["MQL5", "Python", "ReactJS"]
+      techStack: ["MQL5", "Python", "ReactJS", "C++"]
     }
   ],
   searchResult: []
@@ -57,6 +57,17 @@ const filterReducer = (state = initialState, action) => {
       });
       console.log(nextState);
       return nextState;
+    case actionTypes.FILTER_PROJECT:
+      const filteredState = produce(state, draftState => {
+        draftState.searchResult = state.projects.filter(project => {
+          console.log(project.techStack.includes("MQL5"));
+          return action.chipArray.every(
+            element => project.techStack.indexOf(element) > -1
+          );
+        });
+      });
+      console.log(filteredState);
+      return filteredState;
 
     default:
       return state;

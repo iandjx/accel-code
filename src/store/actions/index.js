@@ -1,1 +1,1 @@
-export { searchProject } from "./filter";
+export { searchProject, filterProject } from "./filter";

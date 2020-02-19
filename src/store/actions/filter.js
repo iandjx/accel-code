@@ -5,3 +5,9 @@ export const searchProject = keyword => {
     keyword: keyword
   };
 };
+export const filterProject = chipArray => {
+  return {
+    type: actionTypes.FILTER_PROJECT,
+    chipArray: chipArray
+  };
+};

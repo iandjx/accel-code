@@ -7,7 +7,7 @@ import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import filterReducer from "./store/reducers/filter";
-
+import { composeWithDevTools } from "redux-devtools-extension";
 //const composeEnhancers =
 //process.env.NODE_ENV === "development"
 //? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
@@ -16,7 +16,7 @@ import filterReducer from "./store/reducers/filter";
 const rootReducer = combineReducers({
   filter: filterReducer
 });
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware()));
 
 const app = (
   <Provider store={store}>
