@@ -8,14 +8,20 @@ const ProjectList = () => {
     return state.filter.searchResult;
   });
 
-  const projects = useSelector(state => {
-    return state.filter.projects;
+  const filteredResult = useSelector(state => {
+    return state.filter.filteredResult;
   });
+
+  let searchArray = [];
+
+  filteredResult.length > 0
+    ? (searchArray = filteredResult)
+    : (searchArray = searchResult);
 
   return (
     <div>
-      {searchResult &&
-        searchResult.map(project => (
+      {searchArray &&
+        searchArray.map(project => (
           <ProjectCard
             title={project.title}
             description={project.description}

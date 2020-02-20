@@ -33,7 +33,8 @@ const initialState = {
       techStack: ["MQL5", "Python", "ReactJS", "C++"]
     }
   ],
-  searchResult: []
+  searchResult: [],
+  filteredResult: []
 };
 
 var options = {
@@ -54,12 +55,18 @@ const filterReducer = (state = initialState, action) => {
         const fuse = new Fuse(state.projects, options);
         const result = fuse.search(action.keyword);
         draftState.searchResult = result;
+        draftState.filteredResult = [];
       });
       console.log(nextState);
       return nextState;
+
     case actionTypes.FILTER_PROJECT:
       const filteredState = produce(state, draftState => {
-        draftState.searchResult = state.projects.filter(project => {
+        let arr = [];
+        state.searchResult.length <= 0
+          ? (arr = state.projects)
+          : (arr = state.searchResult);
+        draftState.filteredResult = arr.filter(project => {
           console.log(project.techStack.includes("MQL5"));
           return action.chipArray.every(
             element => project.techStack.indexOf(element) > -1
