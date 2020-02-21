@@ -27,11 +27,16 @@ const Search = props => {
   const onSearchHandler = keyword => {
     dispatch(actions.searchProject(keyword));
   };
-
+  const keyPressed = (event, keyword) => {
+    if (event.key === "Enter") {
+      onSearchHandler(keyword);
+    }
+  };
   const projects = useSelector(state => state.filter.searchResult);
 
   return (
     <TextField
+      onKeyPress={event => keyPressed(event, searchTerm)}
       value={searchTerm}
       onChange={handleChange}
       className={classes.text}
