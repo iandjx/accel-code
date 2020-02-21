@@ -30,6 +30,9 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     flexGrow: 1
+  },
+  list: {
+    width: "100%"
   }
 }));
 
@@ -54,17 +57,17 @@ const Dashboard = props => {
             </Toolbar>
           </AppBar>
         </Grid>
+        <Grid item xs={1}></Grid>
         <Grid item xs={2}>
           <Paper>
             <SideBar />
           </Paper>
         </Grid>
-        <Grid item xs={10}>
-          <Paper>
-            <SearchBar />
-            <ProjectList />
-          </Paper>
+        <Grid item xs={9}>
+          <SearchBar />
+          <ProjectList />
         </Grid>
+        <Grid item xs={1}></Grid>
       </Grid>
     </div>
   );

@@ -9,7 +9,7 @@ import Chip from "@material-ui/core/Chip";
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: "95%",
+    maxWidth: "81%",
     border: 2,
     marginBottom: 10
   },
