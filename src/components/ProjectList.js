@@ -4,6 +4,7 @@ import { connect, useDispatch, useSelector } from "react-redux";
 
 //TODO Use useSelector() to pull project list from Redux
 const ProjectList = () => {
+  const projects = useSelector(state => state.filter.projects);
   const searchResult = useSelector(state => {
     return state.filter.searchResult;
   });
@@ -16,7 +17,9 @@ const ProjectList = () => {
 
   filteredResult.length > 0
     ? (searchArray = filteredResult)
-    : (searchArray = searchResult);
+    : searchResult.length > 0
+    ? (searchArray = searchResult)
+    : (searchArray = projects);
 
   return (
     <div>
