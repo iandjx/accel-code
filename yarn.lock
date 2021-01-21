@@ -5490,6 +5490,11 @@ functional-red-black-tree@^1.0.1:
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
+fuse.js@^3.4.6:
+  version "3.6.1"
+  resolved "https://registry.yarnpkg.com/fuse.js/-/fuse.js-3.6.1.tgz#7de85fdd6e1b3377c23ce010892656385fd9b10c"
+  integrity sha512-hT9yh/tiinkmirKrlv4KWOjztdoZo1mx9Qh4KvWqC7isoXwdUY3PNWUxceF4/qO9R6riA2C29jdTOeQOIROjgw==
+
 gauge@~2.7.3:
   version "2.7.4"
   resolved "https://registry.yarnpkg.com/gauge/-/gauge-2.7.4.tgz#2c03405c7538c39d7eb37b317022e325fb018bf7"
@@ -5998,10 +6003,10 @@ immer@1.10.0:
   resolved "https://registry.yarnpkg.com/immer/-/immer-1.10.0.tgz#bad67605ba9c810275d91e1c2a47d4582e98286d"
   integrity sha512-O3sR1/opvCDGLEVcvrGTMtLac8GJ5IwZC4puPrLuRj3l7ICKvkmA0vGuU9OW8mV9WIBRnaxp5GJh9IEAaNOoYg==
 
-immer@^5.3.6:
-  version "5.3.6"
-  resolved "https://registry.yarnpkg.com/immer/-/immer-5.3.6.tgz#51eab8cbbeb13075fe2244250f221598818cac04"
-  integrity sha512-pqWQ6ozVfNOUDjrLfm4Pt7q4Q12cGw2HUZgry4Q5+Myxu9nmHRkWBpI0J4+MK0AxbdFtdMTwEGVl7Vd+vEiK+A==
+immer@^8.0.1:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/immer/-/immer-8.0.1.tgz#9c73db683e2b3975c424fb0572af5889877ae656"
+  integrity sha512-aqXhGP7//Gui2+UrEtvxZxSquQVXTpZ7KDxfCcKAF3Vysvw0CViVaW9RZ1j1xlIYqaaaipBoqdqeibkc18PNvA==
 
 import-cwd@^2.0.0:
   version "2.1.0"
@@ -9918,6 +9923,11 @@ reduce-function-call@^1.0.1:
   integrity sha512-Hl/tuV2VDgWgCSEeWMLwxLZqX7OK59eU1guxXsRKTAyeYimivsKdtcV4fu3r710tpG5GmDKDhQ0HSZLExnNmyQ==
   dependencies:
     balanced-match "^1.0.0"
+
+redux-devtools-extension@^2.13.8:
+  version "2.13.8"
+  resolved "https://registry.yarnpkg.com/redux-devtools-extension/-/redux-devtools-extension-2.13.8.tgz#37b982688626e5e4993ff87220c9bbb7cd2d96e1"
+  integrity sha512-8qlpooP2QqPtZHQZRhx3x3OP5skEV1py/zUdMY28WNAocbafxdG2tRD1MWE7sp8obGMNYuLWanhhQ7EQvT1FBg==
 
 redux-thunk@^2.3.0:
   version "2.3.0"
