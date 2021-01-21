@@ -12,7 +12,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "fuse.js": "^3.4.6",
-    "immer": "^5.3.6",
+    "immer": "^8.0.1",
     "lunr": "^2.3.8",
     "material-ui-chip-input": "^2.0.0-beta.2",
     "material-ui-search-bar": "^1.0.0-beta.14",
